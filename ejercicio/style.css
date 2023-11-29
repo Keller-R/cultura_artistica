@@ -1,0 +1,273 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+    overflow: hidden;
+}
+
+.header-images {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.header-images img {
+    width: 100%;
+    height: auto;
+}
+
+.hero::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+
+    animation: changeBackground 15s infinite linear;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('/img/5fffa94f972dd62c2346caa888c0c8eb.jpg');
+    }
+
+    33.33% {
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('/img/054417ea292baddd620a0a1e80816b55.jpg');
+    }
+
+    66.66% {
+
+
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('/img/2.jpg');
+    }
+
+    100% {
+
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('/img/download.jpg');
+    }
+
+}
+
+
+/* Estilo para el submenú */
+.sub-menu {
+    display: block; /* Inicialmente muestra el submenú */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    max-height: 0; /* Oculta el contenido por defecto */
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out; /* Agrega una transición suave */
+}
+
+/* Estilo para los elementos del submenú */
+.sub-menu li {
+    margin: 10px 0;
+    position: relative;
+}
+
+/* Estilo para los enlaces del submenú */
+.sub-menu a {
+    text-decoration: none;
+    color: #ffffff; /* Cambia el color según tus preferencias */
+}
+
+/* Estilo para mostrar el submenú al pasar el ratón sobre el enlace principal */
+.nav__items:hover .sub-menu {
+    max-height: 500px; /* Establece un valor suficientemente grande para mostrar todas las opciones */
+}
+.sub-menu a:hover{
+    color: #490303;
+}
+
+
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__title {
+    font-weight: 300;
+    width: 45px;
+    /* Ancho  */
+    height: 50px;
+    /* Alto  */
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.nav__links {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+.nav__close {
+    display: var(--show, none);
+}
+
+
+
+.hero__container {
+    max-width: 800px;
+    --padding-container: 0;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+}
+
+.hero__paragraph {
+    margin-bottom: 20px;
+}
+
+
+@media (max-width:800px) {
+    .nav__menu {
+        display: block;
+    }
+
+    .nav__link--menu {
+        position: fixed;
+        background-color: #504d4d;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .7s opacity;
+    }
+
+    .nav__link--show {
+        --show: block;
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    .nav__close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+
+}
+
+.card-container {
+    display: flex;
+    align-items: flex-start; /* Ajusta según tu preferencia */
+    flex-direction: row; /* Cambia de columna a fila */
+    gap:300px;
+    z-index: 1;
+}
+
+
+.card {
+    max-width: 200px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.product-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.product-description {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #2980b9;
+}
